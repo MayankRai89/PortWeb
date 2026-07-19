@@ -83,7 +83,6 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Click ripples */}
       {ripples.map((ripple) => (
         <motion.div
           key={ripple.id}
@@ -97,7 +96,6 @@ export default function CustomCursor() {
         />
       ))}
 
-      {/* Trailing Outer Ring */}
       <motion.div
         style={{
           x: trailX,
@@ -114,8 +112,7 @@ export default function CustomCursor() {
         transition={{ type: 'spring', stiffness: 450, damping: 30, mass: 0.5 }}
         className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full border border-solid"
       />
-
-      {/* Inner Core Dot */}
+      
       <motion.div
         style={{
           x: cursorX,

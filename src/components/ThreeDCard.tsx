@@ -14,23 +14,18 @@ export default function ThreeDCard({ name, icon: Icon, color, glowClass }: Three
   const cardRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
 
-  // Normalized cursor coordinates (-0.5 to 0.5) for card tilt
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  // Pixel cursor coordinates relative to card top-left
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
-  // Interpolate angles (max 15 degrees tilt)
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [15, -15]), { stiffness: 350, damping: 25 })
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-15, 15]), { stiffness: 350, damping: 25 })
 
-  // Smooth springs for spotlight coordinates
   const spotlightX = useSpring(mouseX, { stiffness: 200, damping: 20 })
   const spotlightY = useSpring(mouseY, { stiffness: 200, damping: 20 })
 
-  // Build the dynamic radial spotlight gradient following mouse in pixels
   const spotlightBg = useTransform(
     [spotlightX, spotlightY],
     ([latestX, latestY]) => `radial-gradient(80px circle at ${latestX}px ${latestY}px, ${color} 0%, transparent 100%)`
@@ -83,13 +78,11 @@ export default function ThreeDCard({ name, icon: Icon, color, glowClass }: Three
         }}
         className="group relative flex items-center gap-3 rounded-2xl border border-stone-200 bg-white/70 p-4 transition-colors duration-300 dark:border-white/10 dark:bg-transparent cursor-pointer w-full overflow-hidden"
       >
-        {/* Dynamic spot gradient following cursor */}
         <motion.div
           style={{ backgroundImage: spotlightBg }}
           className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover:opacity-15 dark:group-hover:opacity-25"
         />
 
-        {/* Foreground Content */}
         <div className="relative z-10 flex items-center gap-3 w-full" style={{ transform: 'translateZ(10px)', transformStyle: 'preserve-3d' }}>
           <motion.div
             style={{

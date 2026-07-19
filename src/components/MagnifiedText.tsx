@@ -7,11 +7,10 @@ type MagnifiedTextProps = {
 
 export default function MagnifiedText({ text, className = '' }: MagnifiedTextProps) {
   const containerRef = useRef<HTMLSpanElement>(null)
-  // cache character rects so we never call getBoundingClientRect inside the rAF loop
+
   const rectsRef = useRef<{ el: HTMLElement; cx: number; cy: number }[]>([])
   const rafRef = useRef<number>(0)
-
-  // Rebuild rect cache whenever the component mounts or text changes
+  
   const buildCache = useCallback(() => {
     const container = containerRef.current
     if (!container) return
@@ -23,9 +22,9 @@ export default function MagnifiedText({ text, className = '' }: MagnifiedTextPro
   }, [])
 
   useEffect(() => {
-    // build once after paint
+    
     const id = requestAnimationFrame(buildCache)
-    // rebuild on resize/scroll (rects shift)
+    
     window.addEventListener('resize', buildCache, { passive: true })
     window.addEventListener('scroll', buildCache, { passive: true })
     return () => {
@@ -38,7 +37,7 @@ export default function MagnifiedText({ text, className = '' }: MagnifiedTextPro
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLSpanElement>) => {
     const mx = e.clientX
     const my = e.clientY
-    // Throttle via rAF — skip if a frame is already queued
+    
     if (rafRef.current) return
     rafRef.current = requestAnimationFrame(() => {
       rafRef.current = 0

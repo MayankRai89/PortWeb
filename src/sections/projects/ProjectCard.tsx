@@ -1,6 +1,3 @@
-/**
- * ProjectCard — individual project showcase card used inside the fullscreen chapter panel.
- */
 import { ExternalLink } from 'lucide-react'
 import { FaGithub } from 'react-icons/fa'
 import { Rocket, MonitorSmartphone } from 'lucide-react'
@@ -13,9 +10,9 @@ type Props = { project: Project; index: number; total: number; category: string 
 export default function ProjectCard({ project, index, total, category }: Props) {
   return (
     <div className="relative h-full w-full flex flex-col lg:flex-row items-center gap-10 px-8 md:px-20 py-10 max-w-7xl mx-auto">
-      {/* ─── Left: text ──────────────────────────────────────────── */}
+      
       <div className="flex-1 flex flex-col justify-center">
-        {/* chapter eyebrow */}
+          
         <div className="flex items-center gap-3 mb-5">
           <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-amber-500">{category}</span>
           <span className="h-px w-6 bg-amber-500/40" />
@@ -32,7 +29,6 @@ export default function ProjectCard({ project, index, total, category }: Props) 
           {project.description}
         </p>
 
-        {/* features */}
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
           {project.features.map((f) => (
             <li key={f} className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400">
@@ -42,7 +38,7 @@ export default function ProjectCard({ project, index, total, category }: Props) 
           ))}
         </ul>
 
-        {/* stack icons */}
+       
         <div className="flex flex-wrap gap-2 mb-9">
           {project.stack.map((tag) => {
             const detail = skillDetailsMap[tag]
@@ -61,7 +57,6 @@ export default function ProjectCard({ project, index, total, category }: Props) 
           })}
         </div>
 
-        {/* CTAs */}
         <div className="flex gap-3">
           <a href="#contact" className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-stone-950 text-white dark:bg-white dark:text-stone-950 text-sm font-medium hover:scale-[1.03] transition shadow-lg">
             Live Demo <ExternalLink size={14} />
@@ -72,19 +67,19 @@ export default function ProjectCard({ project, index, total, category }: Props) 
         </div>
       </div>
 
-      {/* ─── Right: visual panel ─────────────────────────────────── */}
+      
       <div className="flex-1 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.92}}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, ease: [0.26, 1, 0.98, 0.98] }}
           className={`relative w-full max-w-md aspect-[4/3] rounded-3xl border border-stone-200/40 dark:border-white/8 bg-gradient-to-br ${project.accent} overflow-hidden shadow-2xl`}
         >
-          {/* grid lines */}
+         
           <div className="absolute inset-0 bg-[linear-gradient(rgba(245,158,11,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.03)_1px,transparent_1px)] bg-[size:28px_28px]" />
-          {/* ambient glow */}
+         
           <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-orange-600/10" />
-          {/* centre content */}
+         
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
             <div className="h-16 w-16 rounded-full border border-amber-500/30 bg-amber-500/10 flex items-center justify-center text-amber-500">
               <Rocket size={28} />
