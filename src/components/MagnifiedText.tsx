@@ -1,0 +1,97 @@
+import { useRef, useCallback, useEffect } from 'react'
+
+type MagnifiedTextProps = {
+  text: string
+  className?: string
+}
+
+export default function MagnifiedText({ text, className = '' }: MagnifiedTextProps) {
+  const containerRef = useRef<HTMLSpanElement>(null)
+  // cache character rects so we never call getBoundingClientRect inside the rAF loop
+  const rectsRef = useRef<{ el: HTMLElement; cx: number; cy: number }[]>([])
+  const rafRef = useRef<number>(0)
+
+  // Rebuild rect cache whenever the component mounts or text changes
+  const buildCache = useCallback(() => {
+    const container = containerRef.current
+    if (!container) return
+    const spans = container.querySelectorAll<HTMLElement>('.magnify-char')
+    rectsRef.current = Array.from(spans).map((el) => {
+      const r = el.getBoundingClientRect()
+      return { el, cx: r.left + r.width / 2, cy: r.top + r.height / 2 }
+    })
+  }, [])
+
+  useEffect(() => {
+    // build once after paint
+    const id = requestAnimationFrame(buildCache)
+    // rebuild on resize/scroll (rects shift)
+    window.addEventListener('resize', buildCache, { passive: true })
+    window.addEventListener('scroll', buildCache, { passive: true })
+    return () => {
+      cancelAnimationFrame(id)
+      window.removeEventListener('resize', buildCache)
+      window.removeEventListener('scroll', buildCache)
+    }
+  }, [buildCache, text])
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLSpanElement>) => {
+    const mx = e.clientX
+    const my = e.clientY
+    // Throttle via rAF — skip if a frame is already queued
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0
+      const maxDist = 90
+      for (const { el, cx, cy } of rectsRef.current) {
+        const dist = Math.hypot(mx - cx, my - cy)
+        if (dist < maxDist) {
+          const factor = 1 - dist / maxDist
+          const scale = 1 + factor * 0.35
+          const ty = -(factor * 6)
+          el.style.transform = `scale(${scale}) translateY(${ty}px)`
+          el.style.color = 'rgb(245,158,11)'
+        } else {
+          el.style.transform = ''
+          el.style.color = ''
+        }
+      }
+    })
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    cancelAnimationFrame(rafRef.current)
+    rafRef.current = 0
+    for (const { el } of rectsRef.current) {
+      el.style.transform = ''
+      el.style.color = ''
+    }
+  }, [])
+
+  return (
+    <span
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`inline-block select-none ${className}`}
+    >
+      {text.split('').map((char, index) => {
+        if (char === ' ') {
+          return (
+            <span key={index} className="inline-block">
+              &nbsp;
+            </span>
+          )
+        }
+        return (
+          <span
+            key={index}
+            className="magnify-char inline-block transition-transform transition-colors duration-300 ease-out origin-center will-change-transform"
+          >
+            {char}
+          </span>
+        )
+      })}
+    </span>
+  )
+}
