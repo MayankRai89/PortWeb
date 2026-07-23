@@ -6,7 +6,6 @@ import SectionHeading from '../components/SectionHeading'
 import { timeline } from '../data/portfolioData'
 
 export default function About() {
-  // Track open state for each timeline year (all open by default)
   const [openItems, setOpenItems] = useState<Record<string, boolean>>(() =>
     timeline.reduce((acc, item) => ({ ...acc, [item.year]: true }), {})
   )

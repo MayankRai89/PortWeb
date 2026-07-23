@@ -77,23 +77,21 @@ export default function MagnifiedText({ text, className = '' }: MagnifiedTextPro
       onMouseLeave={handleMouseLeave}
       className={`inline-block select-none ${className}`}
     >
-      {text.split('').map((char, index) => {
-        if (char === ' ') {
-          return (
-            <span key={index} className="inline-block">
-              &nbsp;
+      {text.split(' ').map((word, wordIndex, wordsArr) => (
+        <span key={wordIndex} className="inline-block whitespace-nowrap">
+          {word.split('').map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="magnify-char inline-block transition-transform transition-colors duration-300 ease-out origin-center will-change-transform"
+            >
+              {char}
             </span>
-          )
-        }
-        return (
-          <span
-            key={index}
-            className="magnify-char inline-block transition-transform transition-colors duration-300 ease-out origin-center will-change-transform"
-          >
-            {char}
-          </span>
-        )
-      })}
+          ))}
+          {wordIndex < wordsArr.length - 1 && (
+            <span className="inline-block">&nbsp;</span>
+          )}
+        </span>
+      ))}
     </span>
   )
 }
