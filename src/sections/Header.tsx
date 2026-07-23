@@ -17,6 +17,7 @@ export default function Header({ theme, setTheme }: HeaderProps) {
           <a href="#skills" className="transition hover:text-amber-600 dark:hover:text-amber-400">Skills</a>
           <a href="#projects" className="transition hover:text-amber-600 dark:hover:text-amber-400">Projects</a>
           <a href="#contact" className="transition hover:text-amber-600 dark:hover:text-amber-400">Contact</a>
+          <a href="/Mayank_Rai_Resume.pdf" target="_blank" rel="noopener noreferrer" className="transition hover:text-amber-600 dark:hover:text-amber-400">Resume</a>
         </nav>
         <button
           type="button"

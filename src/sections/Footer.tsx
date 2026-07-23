@@ -7,6 +7,7 @@ export default function Footer() {
           <a href="#about" className="transition hover:text-amber-600 dark:hover:text-white">About</a>
           <a href="#projects" className="transition hover:text-amber-600 dark:hover:text-white">Projects</a>
           <a href="#contact" className="transition hover:text-amber-600 dark:hover:text-white">Contact</a>
+          <a href="/Mayank_Rai_Resume.pdf" target="_blank" rel="noopener noreferrer" className="transition hover:text-amber-600 dark:hover:text-white">Resume</a>
         </div>
       </div>
     </footer>

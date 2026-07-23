@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Mail, Pause, Play, Sparkles } from 'lucide-react'
+import { ArrowRight, Download, Mail, Pause, Play } from 'lucide-react'
 import { useRef, useState, useMemo } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
@@ -9,7 +9,7 @@ function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(true)
   const [showIcon, setShowIcon] = useState(false)
-  let iconTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const iconTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const toggle = () => {
     if (!videoRef.current) return
@@ -75,7 +75,7 @@ export default function Hero({ heroRef }: HeroProps) {
   const socialLinks = useMemo(
     () => [
       { href: 'https://github.com/MayankRai89', label: 'GitHub', icon: FaGithub },
-      { href: 'www.linkedin.com/in/mayank-rai-4509581b0', label: 'LinkedIn', icon: FaLinkedin },
+      { href: 'https://www.linkedin.com/in/mayank-rai-4509581b0', label: 'LinkedIn', icon: FaLinkedin },
       { href: 'https://leetcode.com/u/MayankRai89/', label: 'LeetCode', icon: SiLeetcode },
       { href: 'mailto:raimayank245@gmail.com', label: 'Email', icon: Mail },
     ],
@@ -107,8 +107,14 @@ export default function Hero({ heroRef }: HeroProps) {
             <a href="#contact" className="group inline-flex items-center gap-2 rounded-full bg-amber-500 px-5 py-3 font-medium text-stone-950 transition hover:-translate-y-0.5 hover:bg-amber-400">
               View my Work <ArrowRight className="transition group-hover:translate-x-1" size={18} />
             </a>
-            <a href="#ProjectCard" className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-100 px-5 py-3 font-medium text-stone-700 backdrop-blur transition hover:bg-stone-200 dark:border-white/10 dark:bg-white/10 dark:text-stone-200 dark:hover:bg-white/20">
-              Download Resume
+            <a
+              href="/Mayank_Rai_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Mayank_Rai_Resume.pdf"
+              className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-100 px-5 py-3 font-medium text-stone-700 backdrop-blur transition hover:-translate-y-0.5 hover:bg-stone-200 dark:border-white/10 dark:bg-white/10 dark:text-stone-200 dark:hover:bg-white/20"
+            >
+              <Download size={18} /> Download Resume
             </a>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">

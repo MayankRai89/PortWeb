@@ -61,10 +61,13 @@ export default function MagnifiedText({ text, className = '' }: MagnifiedTextPro
   const handleMouseLeave = useCallback(() => {
     cancelAnimationFrame(rafRef.current)
     rafRef.current = 0
-    for (const { el } of rectsRef.current) {
+    const container = containerRef.current
+    if (!container) return
+    const spans = container.querySelectorAll<HTMLElement>('.magnify-char')
+    spans.forEach((el) => {
       el.style.transform = ''
       el.style.color = ''
-    }
+    })
   }, [])
 
   return (
