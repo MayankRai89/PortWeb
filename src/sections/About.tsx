@@ -14,11 +14,15 @@ export default function About() {
         transition={{ duration: 0.8 }}
         className="mx-auto max-w-7xl"
       >
-        <SectionHeading eyebrow="About" title="Crafting ambitious products at the intersection of engineering and AI" description="My work is rooted in solving real problems with systems that are elegant, scalable, and product-ready." />
+        <SectionHeading 
+            eyebrow="About" 
+            title="Full-stack engineer building scalable, product-ready systems" 
+            description="My work is rooted in solving real problems with systems that are elegant, scalable, and product-ready." 
+/>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <GlassCard className="p-8">
             <p className="text-lg leading-8 text-stone-700 dark:text-stone-300">
-              I started in software development because I loved turning ideas into tools that people could actually use. Over time that curiosity expanded into backend engineering, distributed systems, and AI-powered experiences that feel intuitive and dynamic.
+              I started in web development because I loved turning ideas into tools that people could actually use. Over time that curiosity expanded into backend engineering, distributed systems, and AI-powered experiences that feel intuitive and dynamic.
             </p>
             <p className="mt-6 text-lg leading-8 text-stone-600 dark:text-stone-400">
               Today, I focus on building delightful products with a thoughtful blend of performance, architecture, and modern interfaces.

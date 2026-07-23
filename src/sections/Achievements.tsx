@@ -17,7 +17,8 @@ export default function Achievements() {
           <GlassCard className="p-8 lg:p-10">
             <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
               <div>
-                <SectionHeading eyebrow="Achievements" title="A blend of technical depth and consistent growth" description="Numbers reflect the momentum behind the work, creativity, and commitment to learning." />
+                <SectionHeading eyebrow="Achievements"
+                 title="A blend of technical depth and consistent growth" description="Numbers reflect the momentum behind the work, creativity, and commitment to learning." />
               </div>
               <motion.div
                 variants={containerVariants}

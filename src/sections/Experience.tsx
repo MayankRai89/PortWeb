@@ -37,7 +37,6 @@ export default function Experience() {
               </div>
               <ul className="mt-6 space-y-4 text-stone-600 dark:text-stone-400">
                 <li>• NCC achievements and leadership experience</li>
-                <li>• District-level karate participation and discipline-driven growth</li>
                 <li>• Open-source contributions and collaborative engineering values</li>
               </ul>
             </GlassCard>
