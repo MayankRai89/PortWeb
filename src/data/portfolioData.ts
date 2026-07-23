@@ -144,22 +144,22 @@ export const fullStackProjects: Project[] = [
 ]
 
 export const timeline: TimelineItem[] = [
-  { 
-    year: '2024 - Present', 
-    title: 'Building production-grade systems', 
-    detail: 'Leading full stack builds with a strong focus on backend reliability, AI integrations, performance optimization, and polished user experiences.',
-    tags: ['Full-Stack', 'Backend Reliability', 'AI Workflows', 'System Architecture']
+  {
+    year: '2026',
+    title: 'Blood Bank Management System',
+    detail: 'Designed and deployed a full-stack blood bank platform with real-time donor-recipient matching via Socket.IO and an AI chatbot powered by Groq/Llama 3, backed by a complete SRS as part of a university project.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO', 'Groq/Llama 3']
   },
-  { 
-    year: '2023', 
-    title: 'Deepened AI engineering', 
-    detail: 'Explored LangChain, vector search, FastAPI microservices, and modern LLM workflows for intelligent product experiences.',
-    tags: ['LangChain', 'FastAPI', 'Vector Search', 'LLMs']
+  {
+    year: '2025 - 2026',
+    title: 'BranchBridge — EdTech Career Guidance',
+    detail: 'Built an edtech platform helping Class 10-12 students choose academic streams and engineering branches, including a custom quiz question bank and guided decision flows.',
+    tags: ['EdTech', 'Product Design', 'Full-Stack', 'Career Guidance']
   },
-  { 
-    year: '2022', 
-    title: 'Software engineering foundation', 
-    detail: 'Developed a broad base in web engineering, relational databases, cloud tooling, interactive UI components, and software delivery best practices.',
-    tags: ['React', 'Node.js', 'Databases', 'Cloud Tooling']
+  {
+    year: '2024',
+    title: 'SEEDHI — NLP Internship Recommender',
+    detail: 'Built an NLP-based platform that recommends internships to students by matching profiles and interests against opportunity listings using natural language processing.',
+    tags: ['NLP', 'Python', 'Recommendation Systems', 'Full-Stack']
   },
 ]
