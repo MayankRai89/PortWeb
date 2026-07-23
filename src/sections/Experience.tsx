@@ -36,7 +36,6 @@ export default function Experience() {
                 <h3 className="text-xl font-semibold text-stone-900 dark:text-white">Recognition & community</h3>
               </div>
               <ul className="mt-6 space-y-4 text-stone-600 dark:text-stone-400">
-                <li>• NCC achievements and leadership experience</li>
                 <li>• Open-source contributions and collaborative engineering values</li>
               </ul>
             </GlassCard>
