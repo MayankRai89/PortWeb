@@ -8,6 +8,8 @@ import {
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
+export const RESUME_URL = 'https://drive.google.com/file/d/1w3fCCVr04Cslf0FCl2c2wpPoccaHxEB0/view?usp=drive_link'
+
 export type SkillGroup = {
   title: string
   items: string[]

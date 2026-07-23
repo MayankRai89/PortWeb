@@ -4,6 +4,7 @@ import { useRef, useState, useMemo } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 import MagnifiedText from '../components/MagnifiedText'
+import { RESUME_URL } from '../data/portfolioData'
 
 function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -108,10 +109,9 @@ export default function Hero({ heroRef }: HeroProps) {
               View my Work <ArrowRight className="transition group-hover:translate-x-1" size={18} />
             </a>
             <a
-              href="/Mayank_Rai_Resume.pdf"
+              href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              download="Mayank_Rai_Resume.pdf"
               className="inline-flex items-center gap-2 rounded-full border border-stone-300 bg-stone-100 px-5 py-3 font-medium text-stone-700 backdrop-blur transition hover:-translate-y-0.5 hover:bg-stone-200 dark:border-white/10 dark:bg-white/10 dark:text-stone-200 dark:hover:bg-white/20"
             >
               <Download size={18} /> Download Resume

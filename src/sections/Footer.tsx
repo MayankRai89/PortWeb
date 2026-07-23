@@ -1,3 +1,5 @@
+import { RESUME_URL } from '../data/portfolioData'
+
 export default function Footer() {
   return (
     <footer className="border-t border-stone-200 px-6 py-8 text-sm text-stone-500 lg:px-8 dark:border-white/10">
@@ -7,7 +9,7 @@ export default function Footer() {
           <a href="#about" className="transition hover:text-amber-600 dark:hover:text-white">About</a>
           <a href="#projects" className="transition hover:text-amber-600 dark:hover:text-white">Projects</a>
           <a href="#contact" className="transition hover:text-amber-600 dark:hover:text-white">Contact</a>
-          <a href="/Mayank_Rai_Resume.pdf" target="_blank" rel="noopener noreferrer" className="transition hover:text-amber-600 dark:hover:text-white">Resume</a>
+          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="transition hover:text-amber-600 dark:hover:text-white">Resume</a>
         </div>
       </div>
     </footer>
