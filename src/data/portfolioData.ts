@@ -28,6 +28,7 @@ export type TimelineItem = {
   year: string
   title: string
   detail: string
+  tags?: string[]
 }
 
 export type SkillInfo = {
@@ -143,7 +144,22 @@ export const fullStackProjects: Project[] = [
 ]
 
 export const timeline: TimelineItem[] = [
-  { year: '2024', title: 'Building production-grade systems', detail: 'Leading full stack builds with a strong focus on backend reliability, AI integrations, and polished user experiences.' },
-  { year: '2023', title: 'Deepened AI engineering', detail: 'Explored LangChain, vector search, and modern LLM workflows for intelligent product experiences.' },
-  { year: '2022', title: 'Software engineering foundation', detail: 'Developed a broad base in web engineering, databases, cloud tooling, and product delivery.' },
+  { 
+    year: '2024 - Present', 
+    title: 'Building production-grade systems', 
+    detail: 'Leading full stack builds with a strong focus on backend reliability, AI integrations, performance optimization, and polished user experiences.',
+    tags: ['Full-Stack', 'Backend Reliability', 'AI Workflows', 'System Architecture']
+  },
+  { 
+    year: '2023', 
+    title: 'Deepened AI engineering', 
+    detail: 'Explored LangChain, vector search, FastAPI microservices, and modern LLM workflows for intelligent product experiences.',
+    tags: ['LangChain', 'FastAPI', 'Vector Search', 'LLMs']
+  },
+  { 
+    year: '2022', 
+    title: 'Software engineering foundation', 
+    detail: 'Developed a broad base in web engineering, relational databases, cloud tooling, interactive UI components, and software delivery best practices.',
+    tags: ['React', 'Node.js', 'Databases', 'Cloud Tooling']
+  },
 ]
