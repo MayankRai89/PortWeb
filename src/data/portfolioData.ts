@@ -3,7 +3,8 @@ import {
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5, SiCss,
   SiNodedotjs, SiExpress, SiFastapi, SiPostgresql, SiMongodb, SiMysql, SiRedis,
   SiPython, SiGoogle, SiDocker, SiGit, SiGithub, SiLinux, SiLangchain,
-  SiFramer, SiThreedotjs, SiSocketdotio, SiHuggingface
+  SiFramer, SiThreedotjs, SiSocketdotio, SiHuggingface,
+  SiSupabase
 } from 'react-icons/si'
 import { FaServer, FaDatabase, FaJava, FaBrain, FaAws, FaChartLine } from 'react-icons/fa'
 
@@ -70,13 +71,14 @@ export const skillDetailsMap: Record<string, SkillInfo> = {
   'NLP': { icon: FaBrain, color: '#8E24AA', glowClass: 'rgba(142, 36, 170, 0.4)' },
   'Sentence Transformers': { icon: SiHuggingface, color: '#FFD21E', glowClass: 'rgba(255, 210, 30, 0.4)' },
   'AI Chatbot': { icon: FaBrain, color: '#009688', glowClass: 'rgba(0, 150, 136, 0.4)' },
+  'Supabase': { icon: SiSupabase, color: '#009688', glowClass: 'rgba(0, 150, 136, 0.4)' },
 }
 
 export const skillGroups: SkillGroup[] = [
   { title: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML', 'CSS'] },
   { title: 'Backend', items: ['Node.js', 'Express.js', 'FastAPI', 'REST APIs'] },
-  { title: 'Database', items: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis'] },
-  { title: 'Programming', items: ['Java', 'Python', 'SQL'] },
+  { title: 'Database', items: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis', 'Supabase'] },
+  { title: 'Programming', items: ['Java', 'SQL'] },
   { title: 'AI & ML', items: ['LangChain', 'OpenAI API', 'Gemini API', 'RAG', 'Vector Databases'] },
   { title: 'Tools', items: ['Git', 'Docker', 'GitHub', 'Linux', 'AWS'] },
 ]

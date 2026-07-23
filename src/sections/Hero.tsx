@@ -94,9 +94,11 @@ export default function Hero({ heroRef }: HeroProps) {
           </h1>
           <div className="mt-6 text-2xl font-medium sm:text-3xl text-stone-700 dark:text-stone-300">
             <span className="mr-3">I build things for web.</span>
+            <span className="text-amber-600 dark:text-amber-400">• Frontend Engineer</span>
+            <br />
             <span className="text-amber-600 dark:text-amber-400">• Backend Engineer</span>
             <br />
-            <span className="text-orange-600 dark:text-orange-400">• AI Enthusiast</span>
+            <span className="text-orange-600 dark:text-orange-400">  • AI Enthusiast</span>
           </div>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
             I am passionate web developer specializing in building exceptional digital experiences with modern technologies.

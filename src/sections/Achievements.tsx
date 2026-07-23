@@ -18,7 +18,8 @@ export default function Achievements() {
             <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
               <div>
                 <SectionHeading eyebrow="Achievements"
-                 title="A blend of technical depth and consistent growth" description="Numbers reflect the momentum behind the work, creativity, and commitment to learning." />
+                 title="A blend of technical depth and consistent growth" 
+                 description="Numbers reflect the momentum behind the work, creativity, and commitment to learning." />
               </div>
               <motion.div
                 variants={containerVariants}
@@ -28,10 +29,10 @@ export default function Achievements() {
                 className="grid gap-6 sm:grid-cols-2"
               >
                 {[
-                  { label: 'Projects Completed', value: 18 },
+                  { label: 'Projects Completed', value: 4 },
                   { label: 'GitHub Repositories', value: 24 },
                   { label: 'Technologies Learned', value: 15 },
-                  { label: 'LeetCode Problems Solved', value: 320 },
+                  { label: 'LeetCode Problems Solved', value: 180 },
                 ].map((item) => (
                   <motion.div key={item.label} variants={itemVariants} className="rounded-2xl border border-stone-200 bg-white/80 p-6 dark:border-white/10 dark:bg-transparent">
                     <div className="text-4xl font-semibold text-amber-600 dark:text-amber-400"><AnimatedCounter value={item.value} /></div>
